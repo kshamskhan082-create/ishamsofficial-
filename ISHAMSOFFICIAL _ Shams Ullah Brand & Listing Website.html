@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHAMSOFFICIAL | Shams Ullah — Home to Mountain</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Bebas Neue, Oswald, Caveat & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Bebas Neue', 'Oswald', 'sans-serif'],
+                        condensed: ['Oswald', 'sans-serif'],
+                        script: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        shams: {
+                            bg: '#141414',
+                            surface: '#1C1C1F',
+                            card: '#242429',
+                            sky: '#7B96EA',
+                            cream: '#EAE2CE',
+                            red: '#D92323',
+                            border: '#2E2E35',
+                            muted: '#A1A1AA'
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-subtle': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
+                        'sky-fade': 'linear-gradient(90deg, #7B96EA 0%, rgba(123, 156, 234, 0.14) 100%)'
+                    },
+                    backgroundSize: {
+                        'grid-28': '28px 28px',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-shams-bg text-white font-sans antialiased selection:bg-shams-red selection:text-white overflow-x-hidden">
+
+    <!-- Top Brand Ticker -->
+    <div class="bg-shams-surface border-b border-shams-border text-[11px] py-2 px-4 text-center tracking-[0.22em] uppercase font-semibold text-shams-cream">
+        Home to Mountain &bull; @ishamsofficial &bull; @shamsontop &bull; Direct Orders &amp; Collaborations: 0314-6007878
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- 1. STICKY DARK GLASSMORPHIC NAVBAR                                    -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-shams-bg/90 backdrop-blur-md border-b border-shams-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- Brand Emblem & Wordmark -->
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl bg-shams-surface border border-shams-border text-white hover:border-shams-sky transition" aria-label="Open Navigation">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                    <a href="#hero" onclick="resetCatalogFilters()" class="flex items-center gap-3 group">
+                        <div class="w-11 h-11 rounded-full border-2 border-shams-cream overflow-hidden bg-shams-surface flex items-center justify-center shrink-0 group-hover:border-shams-sky transition">
+                            <!-- Custom Circular Mountain Emblem SVG -->
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <rect width="100" height="100" fill="#1E293B"/>
+                                <polygon points="8,88 38,32 68,88" fill="#94A3B8"/>
+                                <polygon points="38,32 50,55 40,58 34,50 26,57" fill="#FFFFFF"/>
+                                <polygon points="35,88 68,24 96,88" fill="#64748B"/>
+                                <polygon points="68,24 79,47 70,51 64,44 58,49" fill="#EAE2CE"/>
+                                <circle cx="50" cy="68" r="14" fill="#141414"/>
+                                <path d="M26,98 C28,82 37,77 50,77 C63,77 72,82 74,98 Z" fill="#0F766E"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="font-display text-2xl sm:text-3xl tracking-wider text-white leading-none">ISHAMSOFFICIAL</span>
+                                <span class="w-2 h-2 rounded-full bg-shams-red"></span>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-[0.28em] text-shams-cream block mt-0.5">SHAMS ULLAH</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-[0.18em] text-shams-muted">
+                    <a href="#catalog" class="hover:text-shams-sky transition py-1">Expeditions &amp; Merch</a>
+                    <a href="#about" class="hover:text-shams-sky transition py-1">About Shams</a>
+                    <a href="#ventures" class="hover:text-shams-sky transition py-1">Ventures</a>
+                    <a href="#contact" class="hover:text-shams-sky transition py-1">Contact</a>
+                </nav>
+
+                <!-- Search, + Add Listing & Cart/Wishlist Actions -->
+                <div class="flex items-center gap-2.5">
+                    <!-- Desktop Search Bar -->
+                    <div class="relative hidden md:block w-52 xl:w-64">
+                        <i data-lucide="search" class="w-4 h-4 text-shams-muted absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input 
+                            type="text" 
+                            id="search-desktop" 
+                            placeholder="Search gear, vlogs, shilajit..." 
+                            oninput="handleSearch(this.value)"
+                            class="w-full pl-10 pr-4 py-2 bg-shams-surface border border-shams-border rounded-full text-xs text-white placeholder-shams-muted focus:outline-none focus:border-shams-sky transition"
+                        >
+                    </div>
+
+                    <!-- Prominent + Add Listing Button -->
+                    <button 
+                        onclick="openAddListingModal()" 
+                        class="flex items-center gap-1.5 bg-shams-red hover:bg-red-700 text-white px-3.5 sm:px-4 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition shadow-lg shadow-shams-red/20"
+                    >
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span>Add Listing</span>
+                    </button>
+
+                    <!-- Cart / Wishlist Drawer Trigger -->
+                    <button 
+                        onclick="toggleBagDrawer(true)" 
+                        class="relative p-2.5 bg-shams-surface hover:bg-shams-card border border-shams-border hover:border-shams-cream rounded-full text-white transition"
+                        aria-label="Open Bag and Wishlist"
+                    >
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-shams-cream"></i>
+                        <span id="bag-badge" class="absolute -top-1.5 -right-1.5 bg-shams-sky text-shams-bg text-[11px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">
+                            0
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Input -->
+            <div class="md:hidden pb-3">
+                <div class="relative w-full">
+                    <i data-lucide="search" class="w-4 h-4 text-shams-muted absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                    <input 
+                        type="text" 
+                        id="search-mobile" 
+                        placeholder="Search expeditions, jackets, shilajit..." 
+                        oninput="handleSearch(this.value)"
+                        class="w-full pl-10 pr-4 py-2 bg-shams-surface border border-shams-border rounded-full text-xs text-white placeholder-shams-muted focus:outline-none focus:border-shams-sky"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-shams-surface border-b border-shams-border px-4 py-3 space-y-1">
+            <a href="#catalog" onclick="closeMobileMenu()" class="block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest text-shams-sky hover:bg-shams-card">Expeditions &amp; Merch</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest text-white hover:bg-shams-card">About Shams</a>
+            <a href="#ventures" onclick="closeMobileMenu()" class="block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest text-white hover:bg-shams-card">Ventures &amp; Book</a>
+            <a href="#contact" onclick="closeMobileMenu()" class="block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest text-white hover:bg-shams-card">Contact</a>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- 2. BOLD HERO SECTION (ISHAMSOFFICIAL • SHAMS ULLAH • HOME TO MOUNTAIN)-->
+    <!-- ===================================================================== -->
+    <section id="hero" class="relative bg-shams-bg bg-grid-subtle bg-grid-28 border-b border-shams-border overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Editorial Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-shams-surface border border-shams-border text-[11px] font-extrabold uppercase tracking-[0.22em] text-shams-sky">
+                        <span class="w-2 h-2 rounded-full bg-shams-red animate-pulse"></span>
+                        <span>HOME TO MOUNTAIN &bull; ISHAMSOFFICIAL</span>
+                    </div>
+
+                    <div>
+                        <h1 class="font-display text-6xl sm:text-7xl lg:text-8xl tracking-wide leading-[0.92] text-white">
+                            SHAMS <span class="text-shams-cream">ULLAH</span>
+                        </h1>
+                        <p class="font-condensed text-xl sm:text-2xl uppercase tracking-wider text-shams-sky font-semibold mt-2">
+                            Mountaineer &bull; Adventure Creator &bull; Author &bull; Entrepreneur
+                        </p>
+                    </div>
+
+                    <p class="text-shams-muted text-sm sm:text-base max-w-xl leading-relaxed">
+                        From high-altitude 5,600m Himalayan ridges and sub-zero snow endurance challenges to curated outdoor apparel, pure Himalayan Shilajit, and Urdu youth literature—explore the official <strong class="text-white">@ishamsofficial</strong> &amp; <strong class="text-shams-cream">@shamsontop</strong> archive.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3.5 pt-1">
+                        <a href="#catalog" class="px-7 py-3.5 bg-shams-cream hover:bg-white text-shams-bg font-extrabold text-xs uppercase tracking-[0.18em] rounded-full transition shadow-lg inline-flex items-center gap-2">
+                            <span>Explore Expeditions &amp; Merch</span>
+                            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                        </a>
+                        <button onclick="openAddListingModal()" class="px-6 py-3.5 bg-shams-surface hover:bg-shams-card text-white border border-shams-border hover:border-shams-sky font-bold text-xs uppercase tracking-[0.18em] rounded-full transition inline-flex items-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4 text-shams-red"></i>
+                            <span>+ Add Listing</span>
+                        </button>
+                    </div>
+
+                    <!-- 4 Key Brand & Expedition Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-shams-border">
+                        <div class="bg-shams-surface/90 border border-shams-border p-3.5 rounded-2xl">
+                            <p class="font-display text-3xl text-shams-sky tracking-wide leading-none">5,600M</p>
+                            <p class="text-[10px] uppercase tracking-wider text-shams-muted mt-1.5">High-Altitude Summit</p>
+                        </div>
+                        <div class="bg-shams-surface/90 border border-shams-border p-3.5 rounded-2xl">
+                            <p class="font-display text-3xl text-shams-red tracking-wide leading-none">-25&deg;C</p>
+                            <p class="text-[10px] uppercase tracking-wider text-shams-muted mt-1.5">Barefoot Snow Challenge</p>
+                        </div>
+                        <div class="bg-shams-surface/90 border border-shams-border p-3.5 rounded-2xl">
+                            <p class="font-display text-3xl text-white tracking-wide leading-none">NUML '25</p>
+                            <p class="text-[10px] uppercase tracking-wider text-shams-muted mt-1.5">Islamabad Graduate</p>
+                        </div>
+                        <div class="bg-shams-surface/90 border border-shams-border p-3.5 rounded-2xl">
+                            <p class="font-display text-3xl text-shams-cream tracking-wide leading-none">@SHAMSONTOP</p>
+                            <p class="text-[10px] uppercase tracking-wider text-shams-muted mt-1.5">Expedition Logs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Custom SVG Graphic Artwork Banner -->
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden border border-shams-border bg-shams-surface shadow-2xl">
+                        <!-- Custom High-Craft SVG Banner Inspired by ISHAMSOFFICIAL Dark Charcoal & Sky-Blue Design -->
+                        <svg viewBox="0 0 800 640" class="w-full h-auto block">
+                            <defs>
+                                <linearGradient id="heroCardBg" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#19191C"/>
+                                    <stop offset="55%" stop-color="#212126"/>
+                                    <stop offset="100%" stop-color="#121214"/>
+                                </linearGradient>
+                                <linearGradient id="skyBlock" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#7B96EA" stop-opacity="0.95"/>
+                                    <stop offset="100%" stop-color="#7B96EA" stop-opacity="0.1"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="800" height="640" fill="url(#heroCardBg)"/>
+                            
+                            <!-- Subtle Technical Grid Lines -->
+                            <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+                                <line x1="0" y1="128" x2="800" y2="128"/>
+                                <line x1="0" y1="256" x2="800" y2="256"/>
+                                <line x1="0" y1="384" x2="800" y2="384"/>
+                                <line x1="0" y1="512" x2="800" y2="512"/>
+                                <line x1="200" y1="0" x2="200" y2="640"/>
+                                <line x1="400" y1="0" x2="400" y2="640"/>
+                                <line x1="600" y1="0" x2="600" y2="640"/>
+                            </g>
+
+                            <!-- Sky Blue Graphic Accent Block -->
+                            <rect x="44" y="210" width="330" height="120" rx="8" fill="url(#skyBlock)"/>
+                            <rect x="470" y="340" width="286" height="110" rx="8" fill="url(#skyBlock)"/>
+
+                            <!-- Top Editorial Meta -->
+                            <text x="44" y="54" fill="#EAE2CE" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" letter-spacing="2">HOME TO MOUNTAIN</text>
+                            <line x1="650" y1="49" x2="754" y2="49" stroke="#EAE2CE" stroke-width="2"/>
+                            <polyline points="742,40 755,49 742,58" fill="none" stroke="#EAE2CE" stroke-width="2"/>
+
+                            <!-- Giant Condensed Display Typography -->
+                            <text x="40" y="185" fill="#EAE2CE" font-family="Bebas Neue, Impact, sans-serif" font-size="136" letter-spacing="4">ISHAMS</text>
+                            <text x="392" y="185" fill="none" stroke="#EAE2CE" stroke-width="2" font-family="Bebas Neue, Impact, sans-serif" font-size="136" letter-spacing="4">OFFICIAL</text>
+
+                            <!-- Mountain Peak & Expedition Climber Illustration -->
+                            <polygon points="110,560 320,255 520,560" fill="#2A2A32"/>
+                            <polygon points="320,255 375,338 334,352 310,320 282,348" fill="#EAE2CE"/>
+                            <polygon points="340,560 565,215 765,560" fill="#1E1E24" stroke="#7B96EA" stroke-opacity="0.35" stroke-width="1.5"/>
+                            <polygon points="565,215 622,302 582,316 556,284 528,312" fill="#7B96EA"/>
+
+                            <!-- Foreground Mountaineer Silhouette with Expedition Pack -->
+                            <g transform="translate(385, 290)">
+                                <ellipse cx="95" cy="115" rx="54" ry="78" fill="#27272F" stroke="#7B96EA" stroke-width="2"/>
+                                <path d="M-15,270 C0,165 35,125 85,125 C135,125 170,165 185,270 Z" fill="#18181B" stroke="#EAE2CE" stroke-width="2"/>
+                                <circle cx="85" cy="72" r="38" fill="#18181B" stroke="#EAE2CE" stroke-width="2"/>
+                                <!-- Snow Goggles -->
+                                <rect x="52" y="56" width="68" height="24" rx="10" fill="#09090B" stroke="#7B96EA" stroke-width="2.5"/>
+                                <line x1="60" y1="62" x2="112" y2="73" stroke="#7B96EA" stroke-opacity="0.6" stroke-width="3"/>
+                            </g>
+
+                            <!-- Red Accent Tag & Decorative Rings -->
+                            <rect x="44" y="485" width="168" height="36" rx="6" fill="#D92323"/>
+                            <text x="128" y="508" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">@SHAMSONTOP</text>
+
+                            <g stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.7">
+                                <circle cx="52" cy="565" r="7"/>
+                                <circle cx="72" cy="565" r="7"/>
+                                <circle cx="92" cy="565" r="7"/>
+                            </g>
+                            <text x="756" y="572" text-anchor="end" fill="#EAE2CE" font-family="Oswald, sans-serif" font-size="18" font-weight="700" letter-spacing="2">QUETTA &bull; ISLAMABAD &bull; MANSEHRA</text>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 3. INTERACTIVE FILTERABLE LISTING & SHOWCASE GRID                     -->
+    <!-- ===================================================================== -->
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 border-b border-shams-border">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-shams-sky mb-2">
+                    <span class="w-6 h-0.5 bg-shams-sky"></span>
+                    <span>01 // OFFICIAL CATALOG &amp; ARCHIVE</span>
+                </div>
+                <h2 id="catalog-title" class="font-display text-5xl sm:text-6xl uppercase tracking-wide text-white leading-none">
+                    EXPEDITIONS, GEAR <span class="text-shams-cream">&amp; VENTURES</span>
+                </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-shams-muted">
+                Displaying <span id="listing-count" class="font-bold text-white">0</span> curated items &bull; Saved automatically
+            </p>
+        </div>
+
+        <!-- Category Filter Tabs & Sorting Controls -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8 border-b border-shams-border">
+            <!-- Category Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0" id="category-tabs">
+                <button onclick="setCategory('All')" class="tab-btn px-4 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-shams-cream text-shams-bg transition whitespace-nowrap" data-cat="All">
+                    All Listings
+                </button>
+                <button onclick="setCategory('Expeditions & Vlogs')" class="tab-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-shams-surface text-white border border-shams-border hover:border-shams-sky transition whitespace-nowrap" data-cat="Expeditions & Vlogs">
+                    Expeditions &amp; Vlogs
+                </button>
+                <button onclick="setCategory('Outdoor Gear & Merch')" class="tab-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-shams-surface text-white border border-shams-border hover:border-shams-sky transition whitespace-nowrap" data-cat="Outdoor Gear & Merch">
+                    Outdoor Gear &amp; Merch
+                </button>
+                <button onclick="setCategory('Ventures & Books')" class="tab-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-shams-surface text-white border border-shams-border hover:border-shams-sky transition whitespace-nowrap" data-cat="Ventures & Books">
+                    Ventures &amp; Books
+                </button>
+            </div>
+
+            <!-- Sort & Add Listing Trigger -->
+            <div class="flex items-center justify-between sm:justify-end gap-3">
+                <div class="flex items-center gap-2">
+                    <label for="sort-select" class="text-[11px] font-bold uppercase tracking-wider text-shams-muted">Sort By:</label>
+                    <select 
+                        id="sort-select" 
+                        onchange="handleSort(this.value)" 
+                        class="bg-shams-surface border border-shams-border rounded-xl px-3.5 py-2 text-xs font-bold text-white focus:outline-none focus:border-shams-sky cursor-pointer"
+                    >
+                        <option value="featured">Featured Order</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="altitude-desc">Altitude: Highest First</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listing Grid -->
+        <div id="listing-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+            <!-- Dynamically rendered via JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16 px-4 bg-shams-surface rounded-3xl border border-shams-border mt-8">
+            <div class="w-14 h-14 rounded-full bg-shams-card text-shams-sky flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="mountain-snow" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-3xl uppercase tracking-wide text-white mb-2">No Matching Listings Found</h3>
+            <p class="text-shams-muted text-xs sm:text-sm max-w-md mx-auto mb-6">
+                Try clearing your search or category filter, or publish a new outfit, expedition, or merchandise listing live.
+            </p>
+            <div class="flex items-center justify-center gap-3">
+                <button onclick="resetCatalogFilters()" class="px-5 py-2.5 bg-shams-cream text-shams-bg text-xs font-extrabold uppercase tracking-wider rounded-full hover:bg-white transition">
+                    Reset Filters
+                </button>
+                <button onclick="openAddListingModal()" class="px-5 py-2.5 bg-shams-red text-white text-xs font-extrabold uppercase tracking-wider rounded-full hover:bg-red-700 transition">
+                    + Add Listing
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- 4. DEDICATED 'ABOUT SHAMS ULLAH' SPLIT SECTION                        -->
+    <!-- ===================================================================== -->
+    <section id="about" class="py-16 sm:py-24 bg-shams-surface/50 border-b border-shams-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Custom Graphic Poster ("ABOUT ME" + "GRADUATION ISLAMABAD") -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="rounded-3xl overflow-hidden border border-shams-border bg-shams-surface shadow-2xl">
+                        <svg viewBox="0 0 800 500" class="w-full h-auto block">
+                            <defs>
+                                <linearGradient id="aboutSkyGrad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#7B96EA"/>
+                                    <stop offset="100%" stop-color="#7B96EA" stop-opacity="0.1"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="800" height="500" fill="#191919"/>
+                            <rect x="130" y="185" width="220" height="110" fill="url(#aboutSkyGrad)"/>
+                            <rect x="460" y="290" width="240" height="110" fill="url(#aboutSkyGrad)"/>
+
+                            <text x="44" y="155" fill="#FFFFFF" font-family="Bebas Neue, Impact, sans-serif" font-size="128" letter-spacing="3">ABOUT</text>
+                            <text x="495" y="275" fill="#7B96EA" font-family="Bebas Neue, Impact, sans-serif" font-size="210" letter-spacing="4">ME</text>
+
+                            <!-- Expedition Goggles & Puffer Jacket Vector -->
+                            <path d="M210,500 C228,325 288,275 385,275 C482,275 542,325 560,500 Z" fill="#242429" stroke="#3F3F46" stroke-width="2"/>
+                            <circle cx="385" cy="175" r="64" fill="#242429"/>
+                            <rect x="334" y="148" width="108" height="42" rx="14" fill="#09090B" stroke="#7B96EA" stroke-width="3"/>
+                            <line x1="346" y1="158" x2="430" y2="176" stroke="#7B96EA" stroke-opacity="0.5" stroke-width="3.5"/>
+
+                            <!-- Decorative Rings & Brand Tag -->
+                            <g stroke="#FFFFFF" stroke-width="1.8" fill="none" opacity="0.75">
+                                <rect x="46" y="320" width="15" height="15" rx="7.5"/>
+                                <rect x="66" y="320" width="15" height="15" rx="7.5"/>
+                                <rect x="86" y="320" width="15" height="15" rx="7.5"/>
+                            </g>
+                            <rect x="46" y="375" width="48" height="11" fill="#FFFFFF"/>
+                            <text x="580" y="435" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="800" letter-spacing="1.5">ISHAMSOFFICIAL</text>
+                        </svg>
+                    </div>
+
+                    <!-- Academic Strip Card -->
+                    <div class="bg-sky-fade border border-shams-sky/30 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-[0.22em] text-shams-bg bg-shams-cream px-2.5 py-1 rounded">NUML UNIVERSITY ISB &bull; 2025</span>
+                            <h3 class="font-condensed text-2xl font-bold uppercase text-white mt-2">Bachelor of Social Sciences &amp; BS Islamic Studies</h3>
+                            <p class="text-xs text-shams-cream mt-1">Postgraduate Research: MBA Tourism &amp; Hospitality Management &mdash; Hazara University, Mansehra</p>
+                        </div>
+                        <div class="shrink-0 text-left sm:text-right">
+                            <span class="font-script text-3xl text-white block">Islamabad</span>
+                            <span class="text-[10px] uppercase tracking-widest text-shams-cream">Responsibility &amp; Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Biography & Milestones -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-shams-red mb-2">
+                            <span class="w-6 h-0.5 bg-shams-red"></span>
+                            <span>02 // STORY &amp; LEGACY</span>
+                        </div>
+                        <h2 class="font-display text-5xl sm:text-6xl uppercase tracking-wide text-white leading-none">
+                            FROM QUETTA TO <span class="text-shams-sky">HIMALAYAN PEAKS</span>
+                        </h2>
+                    </div>
+
+                    <p class="text-shams-muted text-sm sm:text-base leading-relaxed">
+                        Born in <strong class="text-white">Quetta, Balochistan</strong> and active across <strong class="text-white">Islamabad</strong> and <strong class="text-white">Mansehra</strong>, Shams Ullah combines high-altitude mountaineering discipline with youth leadership, digital storytelling, and sustainable mountain enterprise.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-shams-surface border border-shams-border p-4 rounded-2xl space-y-1.5">
+                            <div class="flex items-center gap-2 text-shams-sky">
+                                <i data-lucide="mountain" class="w-4 h-4"></i>
+                                <span class="text-xs font-extrabold uppercase tracking-wider">Extreme Endurance</span>
+                            </div>
+                            <p class="text-xs text-shams-muted leading-relaxed">
+                                Scaled 5,600m peaks and completed sub-zero -25&deg;C barefoot snow resilience challenges documented on @shamsontop.
+                            </p>
+                        </div>
+
+                        <div class="bg-shams-surface border border-shams-border p-4 rounded-2xl space-y-1.5">
+                            <div class="flex items-center gap-2 text-shams-cream">
+                                <i data-lucide="flame" class="w-4 h-4 text-shams-red"></i>
+                                <span class="text-xs font-extrabold uppercase tracking-wider">Ultra Energy Shilajit</span>
+                            </div>
+                            <p class="text-xs text-shams-muted leading-relaxed">
+                                Founder of Ultra Energy Shilajit—bringing pure, lab-tested Himalayan resin directly from high mountain cliffs to athletes &amp; everyday achievers.
+                            </p>
+                        </div>
+
+                        <div class="bg-shams-surface border border-shams-border p-4 rounded-2xl space-y-1.5">
+                            <div class="flex items-center gap-2 text-shams-cream">
+                                <i data-lucide="book-open" class="w-4 h-4 text-shams-sky"></i>
+                                <span class="text-xs font-extrabold uppercase tracking-wider">Author of "Udaan"</span>
+                            </div>
+                            <p class="text-xs text-shams-muted leading-relaxed">
+                                Author of the Urdu motivational book <em>"Udaan"</em>, inspiring Pakistani youth toward resilience, purpose, and continuous growth.
+                            </p>
+                        </div>
+
+                        <div class="bg-shams-surface border border-shams-border p-4 rounded-2xl space-y-1.5">
+                            <div class="flex items-center gap-2 text-emerald-400">
+                                <i data-lucide="trees" class="w-4 h-4"></i>
+                                <span class="text-xs font-extrabold uppercase tracking-wider">SYP Margalla Trail 5</span>
+                            </div>
+                            <p class="text-xs text-shams-muted leading-relaxed">
+                                Leading eco-cleanliness drives at Margalla Trail 5 Islamabad and conversational fluency in Urdu, English, German &amp; Pashto.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Direct Social & WhatsApp Action Pills -->
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="https://wa.me/923146007878" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase tracking-wider rounded-full transition inline-flex items-center gap-2 shadow-lg">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>WhatsApp: 0314-6007878</span>
+                        </a>
+                        <a href="https://instagram.com/ishamsofficial" target="_blank" rel="noopener noreferrer" class="px-4 py-3 bg-shams-surface hover:bg-shams-card border border-shams-border hover:border-shams-red text-white text-xs font-bold uppercase tracking-wider rounded-full transition inline-flex items-center gap-2">
+                            <i data-lucide="instagram" class="w-4 h-4 text-shams-red"></i>
+                            <span>@ishamsofficial</span>
+                        </a>
+                        <a href="https://instagram.com/shamsontop" target="_blank" rel="noopener noreferrer" class="px-4 py-3 bg-shams-surface hover:bg-shams-card border border-shams-border hover:border-shams-sky text-white text-xs font-bold uppercase tracking-wider rounded-full transition inline-flex items-center gap-2">
+                            <i data-lucide="compass" class="w-4 h-4 text-shams-sky"></i>
+                            <span>@shamsontop</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 5. VENTURES & CONTACT SECTION                                         -->
+    <!-- ===================================================================== -->
+    <section id="ventures" class="py-16 sm:py-24 bg-grid-subtle bg-grid-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <!-- 3 Signature Brand Pillars -->
+            <div>
+                <div class="mb-10">
+                    <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-shams-cream mb-2">
+                        <span class="w-6 h-0.5 bg-shams-cream"></span>
+                        <span>03 // BRAND PILLARS</span>
+                    </div>
+                    <h2 class="font-display text-5xl sm:text-6xl uppercase tracking-wide text-white leading-none">
+                        VENTURES <span class="text-shams-sky">&amp; LEADERSHIP</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-shams-surface border border-shams-border hover:border-shams-sky rounded-3xl p-7 flex flex-col justify-between space-y-6 transition">
+                        <div class="space-y-3">
+                            <span class="inline-block px-3 py-1 rounded-full bg-shams-red text-white text-[10px] font-extrabold uppercase tracking-widest">Founder</span>
+                            <h3 class="font-condensed text-3xl font-bold uppercase text-white">Ultra Energy Shilajit</h3>
+                            <p class="text-shams-muted text-sm leading-relaxed">
+                                Pure high-altitude Himalayan Shilajit harvested for peak stamina, oxygen recovery, and natural vitality. Available in 15g &amp; 30g glass jars with nationwide Cash on Delivery.
+                            </p>
+                        </div>
+                        <button onclick="quickOrderItem(103)" class="w-full py-3 bg-shams-sky hover:bg-blue-400 text-shams-bg font-extrabold text-xs uppercase tracking-widest rounded-full transition">
+                            Add Shilajit to Bag
+                        </button>
+                    </div>
+
+                    <div class="bg-shams-surface border border-shams-border hover:border-shams-cream rounded-3xl p-7 flex flex-col justify-between space-y-6 transition">
+                        <div class="space-y-3">
+                            <span class="inline-block px-3 py-1 rounded-full bg-shams-cream text-shams-bg text-[10px] font-extrabold uppercase tracking-widest">Author</span>
+                            <h3 class="font-condensed text-3xl font-bold uppercase text-white">"Udaan" &mdash; Urdu Book</h3>
+                            <p class="text-shams-muted text-sm leading-relaxed">
+                                Written from real experiences on 5,600m ridges—<em>"Udaan"</em> explores mental resilience, small daily steps, and self-mastery for young dreamers across Pakistan.
+                            </p>
+                        </div>
+                        <button onclick="quickOrderItem(104)" class="w-full py-3 bg-shams-card hover:bg-shams-cream text-white hover:text-shams-bg border border-shams-border font-extrabold text-xs uppercase tracking-widest rounded-full transition">
+                            Reserve Signed Copy
+                        </button>
+                    </div>
+
+                    <div class="bg-shams-surface border border-shams-border hover:border-emerald-500 rounded-3xl p-7 flex flex-col justify-between space-y-6 transition">
+                        <div class="space-y-3">
+                            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500 text-shams-bg text-[10px] font-extrabold uppercase tracking-widest">Community</span>
+                            <h3 class="font-condensed text-3xl font-bold uppercase text-white">SYP Margalla Trail 5</h3>
+                            <p class="text-shams-muted text-sm leading-relaxed">
+                                Organizing youth trail-cleaning expeditions and responsible eco-tourism initiatives in Islamabad &amp; Northern Pakistan.
+                            </p>
+                        </div>
+                        <a href="#contact" class="w-full py-3 bg-shams-card hover:bg-emerald-600 text-white border border-shams-border font-extrabold text-xs uppercase tracking-widest rounded-full transition text-center">
+                            Collaborate on Drives
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Split Panel -->
+            <div id="contact" class="bg-shams-surface border border-shams-border rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-shams-sky">04 // DIRECT CONCIERGE</span>
+                    <h2 class="font-display text-5xl uppercase tracking-wide text-white leading-none">
+                        WORK WITH <span class="text-shams-cream">SHAMS ULLAH</span>
+                    </h2>
+                    <p class="text-shams-muted text-sm leading-relaxed">
+                        Send a direct WhatsApp message for apparel &amp; gear orders, Ultra Energy Shilajit inquiries, expedition collaborations, or speaking sessions.
+                    </p>
+                    <div class="space-y-2 pt-2 text-xs text-shams-cream font-semibold">
+                        <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i> WhatsApp / Direct: 0314-6007878</p>
+                        <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-shams-red"></i> Quetta &bull; Islamabad &bull; Mansehra, Pakistan</p>
+                    </div>
+                </div>
+
+                <form onsubmit="submitDirectContact(event)" class="lg:col-span-7 space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="direct-name" required placeholder="Your Full Name *" class="w-full px-4 py-3 bg-shams-bg border border-shams-border rounded-xl text-xs text-white placeholder-shams-muted focus:outline-none focus:border-shams-sky">
+                        <select id="direct-subject" class="w-full px-4 py-3 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                            <option value="Merch & Apparel Order">Merch &amp; Apparel Order</option>
+                            <option value="Ultra Energy Shilajit">Ultra Energy Shilajit</option>
+                            <option value="Expedition / Brand Collab">Expedition / Brand Collab</option>
+                            <option value="Book Udaan Inquiry">Book "Udaan" Inquiry</option>
+                        </select>
+                    </div>
+                    <textarea id="direct-msg" rows="3" required placeholder="Write your message for @ishamsofficial..." class="w-full px-4 py-3 bg-shams-bg border border-shams-border rounded-xl text-xs text-white placeholder-shams-muted focus:outline-none focus:border-shams-sky"></textarea>
+                    <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-widest rounded-full transition shadow-lg inline-flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span>Send via WhatsApp (0314-6007878)</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-shams-bg border-t border-shams-border py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-shams-muted">
+            <div class="flex items-center gap-2">
+                <span class="font-display text-2xl tracking-wider text-white">ISHAMSOFFICIAL</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-shams-red"></span>
+                <span class="text-shams-cream font-semibold">SHAMS ULLAH</span>
+            </div>
+            <p>Home to Mountain &bull; @ishamsofficial &bull; @shamsontop &bull; &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 1: QUICK-VIEW DETAIL MODAL                                      -->
+    <!-- ===================================================================== -->
+    <div id="quick-view-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-shams-surface border border-shams-border rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl max-h-[90vh] flex flex-col md:flex-row relative">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-shams-bg/90 hover:bg-shams-red text-white rounded-full flex items-center justify-center border border-shams-border transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Custom SVG Artwork Display -->
+            <div id="qv-art-container" class="md:w-1/2 bg-shams-bg flex items-center justify-center p-4 min-h-[260px]">
+                <!-- Injected SVG -->
+            </div>
+
+            <!-- Item Details -->
+            <div class="md:w-1/2 p-6 sm:p-8 overflow-y-auto flex flex-col justify-between space-y-5">
+                <div class="space-y-3.5">
+                    <div>
+                        <span id="qv-category" class="text-[11px] font-extrabold uppercase tracking-[0.2em] text-shams-sky"></span>
+                        <h3 id="qv-title" class="font-display text-3xl sm:text-4xl uppercase tracking-wide text-white mt-1 leading-tight"></h3>
+                        <div class="flex items-center gap-3 mt-2">
+                            <span id="qv-price" class="text-xl font-extrabold text-shams-cream"></span>
+                            <span id="qv-altitude-pill" class="px-2.5 py-0.5 rounded-full bg-shams-card border border-shams-border text-[11px] font-bold text-shams-sky"></span>
+                        </div>
+                    </div>
+
+                    <p id="qv-desc" class="text-xs sm:text-sm text-shams-muted leading-relaxed"></p>
+
+                    <div class="bg-shams-bg p-3.5 rounded-2xl border border-shams-border space-y-1.5 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-shams-muted">Edition / Spec:</span>
+                            <span id="qv-spec" class="font-bold text-white"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-shams-muted">Location / Origin:</span>
+                            <span id="qv-location" class="font-bold text-shams-cream"></span>
+                        </div>
+                    </div>
+
+                    <!-- Option / Size Selector -->
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-2">Select Option / Size</label>
+                        <div id="qv-options" class="flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                    <button id="qv-add-btn" class="py-3 bg-shams-cream hover:bg-white text-shams-bg font-extrabold text-xs uppercase tracking-wider rounded-full transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>Add to Bag</span>
+                    </button>
+                    <button id="qv-wa-btn" class="py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-full transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>WhatsApp Inquiry</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 2: LIVE "+ ADD LISTING" CREATOR STUDIO MODAL                    -->
+    <!-- ===================================================================== -->
+    <div id="add-listing-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-shams-surface border border-shams-border rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl max-h-[92vh] flex flex-col">
+            <div class="px-6 py-4 bg-shams-card border-b border-shams-border flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] font-extrabold uppercase tracking-[0.22em] text-shams-sky">@ISHAMSOFFICIAL CREATOR STUDIO</span>
+                    <h3 class="font-display text-3xl uppercase tracking-wide text-white">Add New Listing</h3>
+                </div>
+                <button onclick="closeAddListingModal()" class="p-2 rounded-full bg-shams-surface hover:bg-shams-red text-white transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <form id="add-listing-form" onsubmit="handleAddListing(event)" class="p-6 overflow-y-auto space-y-4">
+                <div>
+                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Listing Title *</label>
+                    <input type="text" id="new-title" required placeholder="e.g., Karakoram Sub-Zero Fleece Jacket" class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Category *</label>
+                        <select id="new-category" class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                            <option value="Outdoor Gear & Merch">Outdoor Gear &amp; Merch</option>
+                            <option value="Expeditions & Vlogs">Expeditions &amp; Vlogs</option>
+                            <option value="Ventures & Books">Ventures &amp; Books</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Price in PKR (0 for Vlog) *</label>
+                        <input type="number" id="new-price" required min="0" step="50" value="4500" class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Location / Altitude</label>
+                        <input type="text" id="new-location" placeholder="e.g., Naran / 4,200m" value="Northern Pakistan" class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Artwork Theme</label>
+                        <select id="new-theme" class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                            <option value="jacket">Expedition Jacket &amp; Apparel</option>
+                            <option value="summit">5,600m Snow Summit</option>
+                            <option value="shilajit">Himalayan Shilajit Gold</option>
+                            <option value="book">Motivational Literature</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Available Sizes / Options</label>
+                    <div class="flex flex-wrap gap-2" id="new-options-group">
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="S" checked class="peer sr-only">
+                            <span class="inline-block px-3 py-1.5 rounded-lg border border-shams-border text-xs font-bold peer-checked:bg-shams-sky peer-checked:text-shams-bg peer-checked:border-shams-sky transition">S</span>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="M" checked class="peer sr-only">
+                            <span class="inline-block px-3 py-1.5 rounded-lg border border-shams-border text-xs font-bold peer-checked:bg-shams-sky peer-checked:text-shams-bg peer-checked:border-shams-sky transition">M</span>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="L" checked class="peer sr-only">
+                            <span class="inline-block px-3 py-1.5 rounded-lg border border-shams-border text-xs font-bold peer-checked:bg-shams-sky peer-checked:text-shams-bg peer-checked:border-shams-sky transition">L</span>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="XL" class="peer sr-only">
+                            <span class="inline-block px-3 py-1.5 rounded-lg border border-shams-border text-xs font-bold peer-checked:bg-shams-sky peer-checked:text-shams-bg peer-checked:border-shams-sky transition">XL</span>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Standard" class="peer sr-only">
+                            <span class="inline-block px-3 py-1.5 rounded-lg border border-shams-border text-xs font-bold peer-checked:bg-shams-sky peer-checked:text-shams-bg peer-checked:border-shams-sky transition">Standard / Vlog</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-shams-muted mb-1.5">Description *</label>
+                    <textarea id="new-desc" rows="2" required placeholder="Describe fabric specs, summit elevation, or product details..." class="w-full px-4 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky"></textarea>
+                </div>
+
+                <div class="pt-3 flex items-center justify-end gap-3 border-t border-shams-border">
+                    <button type="button" onclick="closeAddListingModal()" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-shams-muted hover:text-white">Cancel</button>
+                    <button type="submit" class="px-6 py-2.5 bg-shams-red hover:bg-red-700 text-white text-xs font-extrabold uppercase tracking-wider rounded-full transition shadow-lg">
+                        Publish Live
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- DRAWER: CART / WISHLIST & WHATSAPP ORDERING                           -->
+    <!-- ===================================================================== -->
+    <div id="bag-backdrop" onclick="toggleBagDrawer(false)" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-xs"></div>
+    <aside id="bag-drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-shams-surface border-l border-shams-border shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="px-6 py-5 bg-shams-bg border-b border-shams-border flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-shams-sky"></i>
+                <h3 class="font-display text-3xl uppercase tracking-wide text-white">Your Bag &amp; Wishlist</h3>
+            </div>
+            <button onclick="toggleBagDrawer(false)" class="p-2 rounded-full hover:bg-shams-card text-white transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <div id="bag-items-list" class="space-y-3.5"></div>
+
+            <!-- Empty Bag State -->
+            <div id="bag-empty" class="text-center py-12 space-y-3">
+                <div class="w-14 h-14 rounded-full bg-shams-card text-shams-sky flex items-center justify-center mx-auto">
+                    <i data-lucide="compass" class="w-6 h-6"></i>
+                </div>
+                <p class="font-display text-2xl uppercase tracking-wide text-white">Your Bag is Empty</p>
+                <p class="text-xs text-shams-muted max-w-xs mx-auto">
+                    Add outdoor jackets, Ultra Energy Shilajit, signed copies of "Udaan", or bookmark expeditions to inquire via WhatsApp.
+                </p>
+                <button onclick="toggleBagDrawer(false)" class="mt-2 px-5 py-2.5 bg-shams-cream text-shams-bg text-xs font-extrabold uppercase tracking-wider rounded-full">
+                    Browse Catalog
+                </button>
+            </div>
+
+            <!-- Customer Details Form -->
+            <div id="bag-checkout-form" class="hidden pt-4 border-t border-shams-border space-y-3">
+                <h4 class="text-[11px] font-extrabold uppercase tracking-[0.2em] text-shams-sky">Delivery / Inquiry Details</h4>
+                <input type="text" id="cust-name" placeholder="Full Name *" class="w-full px-3.5 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                <div class="grid grid-cols-2 gap-2.5">
+                    <input type="tel" id="cust-phone" placeholder="Phone (03xx-xxxxxxx) *" class="w-full px-3.5 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                    <input type="text" id="cust-city" placeholder="City (e.g. Islamabad) *" class="w-full px-3.5 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky">
+                </div>
+                <textarea id="cust-address" rows="2" placeholder="Delivery Address or Notes *" class="w-full px-3.5 py-2.5 bg-shams-bg border border-shams-border rounded-xl text-xs text-white focus:outline-none focus:border-shams-sky"></textarea>
+            </div>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div id="bag-footer" class="hidden p-6 bg-shams-bg border-t border-shams-border space-y-4">
+            <div class="space-y-1.5 text-xs">
+                <div class="flex justify-between text-shams-muted">
+                    <span>Merchandise Subtotal</span>
+                    <span id="bag-subtotal" class="font-bold text-white">Rs. 0</span>
+                </div>
+                <div class="flex justify-between text-shams-muted">
+                    <span>Nationwide Delivery</span>
+                    <span id="bag-shipping" class="font-bold text-white">Rs. 250</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-white pt-2 border-t border-shams-border">
+                    <span>Total Estimate</span>
+                    <span id="bag-total" class="text-shams-cream">Rs. 0</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-2.5">
+                <button onclick="sendBagToWhatsApp()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-widest rounded-full transition shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Order / Inquire via WhatsApp (0314-6007878)</span>
+                </button>
+                <button onclick="confirmCODCheckout()" class="w-full py-2.5 bg-shams-cream hover:bg-white text-shams-bg font-extrabold text-xs uppercase tracking-widest rounded-full transition">
+                    Confirm Cash on Delivery
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+    <!-- ===================================================================== -->
+    <script>
+        // =====================================================================
+        // 1. CUSTOM HIGH-CRAFT SVG ARTWORKS (CRISP & ZERO BROKEN IMAGES)
+        // =====================================================================
+        function getThemeSVG(theme, badgeText = '') {
+            const svgs = {
+                summit: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <defs>
+                        <linearGradient id="gSummit" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#1E293B"/>
+                            <stop offset="100%" stop-color="#0F172A"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="600" height="450" fill="url(#gSummit)"/>
+                    <polygon points="40,410 215,120 390,410" fill="#475569"/>
+                    <polygon points="215,120 265,205 225,218 202,188 175,212" fill="#EAE2CE"/>
+                    <polygon points="240,410 430,85 585,410" fill="#334155"/>
+                    <polygon points="430,85 485,178 445,192 420,162 392,185" fill="#7B96EA"/>
+                    <circle cx="120" cy="95" r="3" fill="#FFF" opacity="0.8"/>
+                    <circle cx="510" cy="70" r="4" fill="#FFF" opacity="0.7"/>
+                    <text x="32" y="422" fill="#EAE2CE" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2">5,600M HIGH-ALTITUDE EXPEDITION</text>
+                </svg>`,
+
+                barefoot: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#161822"/>
+                    <rect x="0" y="290" width="600" height="160" fill="#CBD5E1"/>
+                    <path d="M0,295 Q180,265 360,295 T600,285 L600,450 L0,450 Z" fill="#F8FAFC"/>
+                    <text x="300" y="155" text-anchor="middle" fill="#7B96EA" font-family="Bebas Neue, sans-serif" font-size="112" letter-spacing="4">-25&deg;C</text>
+                    <text x="300" y="205" text-anchor="middle" fill="#FFFFFF" font-family="Oswald, sans-serif" font-size="24" font-weight="700" letter-spacing="3">BAREFOOT SNOW ENDURANCE</text>
+                    <rect x="215" y="228" width="170" height="32" rx="6" fill="#D92323"/>
+                    <text x="300" y="249" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="800" letter-spacing="1.5">@SHAMSONTOP</text>
+                </svg>`,
+
+                jacket: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#1A1A1E"/>
+                    <circle cx="300" cy="225" r="155" fill="#7B96EA" fill-opacity="0.12" stroke="#7B96EA" stroke-opacity="0.35" stroke-width="2"/>
+                    <!-- Stylized Alpine Puffer / Polo Silhouette -->
+                    <path d="M195,145 L255,115 L345,115 L405,145 L445,255 L395,275 L370,195 L370,355 L230,355 L230,195 L205,275 L155,255 Z" fill="#0F766E" stroke="#EAE2CE" stroke-width="3"/>
+                    <line x1="300" y1="115" x2="300" y2="355" stroke="#141414" stroke-width="4"/>
+                    <rect x="262" y="102" width="76" height="24" rx="6" fill="#141414" stroke="#EAE2CE" stroke-width="2"/>
+                    <text x="300" y="408" text-anchor="middle" fill="#EAE2CE" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="3">ISHAMSOFFICIAL ALPINE SERIES</text>
+                </svg>`,
+
+                shilajit: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#141414"/>
+                    <polygon points="80,380 300,110 520,380" fill="#222226" stroke="#D92323" stroke-opacity="0.4" stroke-width="2"/>
+                    <!-- Apothecary Resin Jar -->
+                    <rect x="235" y="190" width="130" height="145" rx="18" fill="#1F1F23" stroke="#EAE2CE" stroke-width="3"/>
+                    <rect x="245" y="162" width="110" height="28" rx="6" fill="#D92323"/>
+                    <rect x="252" y="232" width="96" height="64" rx="8" fill="#EAE2CE"/>
+                    <text x="300" y="258" text-anchor="middle" fill="#141414" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="1">ULTRA ENERGY</text>
+                    <text x="300" y="282" text-anchor="middle" fill="#D92323" font-family="Oswald, sans-serif" font-size="16" font-weight="700" letter-spacing="2">SHILAJIT</text>
+                    <text x="300" y="412" text-anchor="middle" fill="#7B96EA" font-family="Oswald, sans-serif" font-size="18" font-weight="700" letter-spacing="2">100% PURE HIMALAYAN RESIN</text>
+                </svg>`,
+
+                book: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#18181B"/>
+                    <rect x="195" y="75" width="210" height="290" rx="12" fill="#EAE2CE" stroke="#7B96EA" stroke-width="4"/>
+                    <rect x="195" y="75" width="22" height="290" rx="4" fill="#D92323"/>
+                    <text x="310" y="175" text-anchor="middle" fill="#141414" font-family="Bebas Neue, sans-serif" font-size="64" letter-spacing="3">UDAAN</text>
+                    <text x="310" y="210" text-anchor="middle" fill="#D92323" font-family="Oswald, sans-serif" font-size="16" font-weight="700" letter-spacing="2">BY SHAMS ULLAH</text>
+                    <line x1="255" y1="235" x2="365" y2="235" stroke="#141414" stroke-width="2"/>
+                    <text x="310" y="268" text-anchor="middle" fill="#3F3F46" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">SMALL STEPS. BIG SUCCESS.</text>
+                    <text x="300" y="412" text-anchor="middle" fill="#EAE2CE" font-family="Oswald, sans-serif" font-size="18" letter-spacing="2">URDU MOTIVATIONAL LITERATURE</text>
+                </svg>`,
+
+                hoodie: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#19191D"/>
+                    <path d="M185,155 L245,115 C270,138 330,138 355,115 L415,155 L455,265 L405,282 L378,202 L378,360 L222,360 L222,202 L195,282 L145,265 Z" fill="#27272A" stroke="#7B96EA" stroke-width="3"/>
+                    <text x="300" y="242" text-anchor="middle" fill="#EAE2CE" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="2">HOME TO MOUNTAIN</text>
+                    <text x="300" y="410" text-anchor="middle" fill="#7B96EA" font-family="Bebas Neue, sans-serif" font-size="26" letter-spacing="3">HEAVYWEIGHT FLEECE EDITION</text>
+                </svg>`,
+
+                trail: `
+                <svg viewBox="0 0 600 450" class="w-full h-full block">
+                    <rect width="600" height="450" fill="#171923"/>
+                    <polygon points="0,360 185,150 370,360" fill="#2D3748"/>
+                    <polygon points="230,360 440,120 600,360" fill="#1A202C"/>
+                    <polygon points="440,120 485,175 452,186 432,165 410,182" fill="#7B96EA"/>
+                    <rect x="0" y="350" width="600" height="100" fill="#14532D"/>
+                    <text x="300" y="408" text-anchor="middle" fill="#EAE2CE" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="2">SYP MARGALLA TRAIL 5 &bull; ISLAMABAD</text>
+                </svg>`
+            };
+            return svgs[theme] || svgs.jacket;
+        }
+
+        // =====================================================================
+        // 2. INITIAL LISTING DATA (EXPEDITIONS, GEAR & MERCH, VENTURES & BOOKS)
+        // =====================================================================
+        const DEFAULT_LISTINGS = [
+            {
+                id: 101,
+                title: "5,600m High-Altitude Summit Expedition",
+                category: "Expeditions & Vlogs",
+                price: 0,
+                altitude: 5600,
+                badge: "5,600M SUMMIT",
+                location: "Northern Peaks, Pakistan",
+                spec: "Full Expedition Vlog & Route Log",
+                theme: "summit",
+                options: ["Watch Highlight", "Join Next Trek"],
+                description: "Documenting the grueling ascent to 5,600 meters across snowfields and exposed rock ridges—testing endurance, breath control, and mountain discipline."
+            },
+            {
+                id: 102,
+                title: "ISHAMSOFFICIAL Sub-Zero Alpine Parka",
+                category: "Outdoor Gear & Merch",
+                price: 8500,
+                altitude: 5000,
+                badge: "SIGNATURE GEAR",
+                location: "Islamabad / Mansehra",
+                spec: "Windproof Thermal Shell (-20°C Rated)",
+                theme: "jacket",
+                options: ["S", "M", "L", "XL"],
+                description: "Insulated deep-teal expedition parka inspired by Shams Ullah's Himalayan winter climbs. Features storm-flap zipper, high thermal collar, and reinforced shoulders."
+            },
+            {
+                id: 103,
+                title: "Ultra Energy Shilajit — Pure Himalayan Resin",
+                category: "Ventures & Books",
+                price: 3800,
+                altitude: 4800,
+                badge: "BESTSELLER",
+                location: "Gilgit-Baltistan Harvest",
+                spec: "30g Sun-Cured Gold Grade Resin",
+                theme: "shilajit",
+                options: ["15g Jar", "30g Jar", "Twin Pack"],
+                description: "Founded by Shams Ullah—100% pure, sun-dried high-altitude Shilajit resin rich in fulvic acid and trace minerals for stamina, altitude recovery, and daily strength."
+            },
+            {
+                id: 104,
+                title: "\"Udaan\" — Urdu Motivational Book (Signed)",
+                category: "Ventures & Books",
+                price: 1450,
+                altitude: 0,
+                badge: "AUTHOR EDITION",
+                location: "Nationwide Delivery",
+                spec: "Hardcover / Signed by Shams Ullah",
+                theme: "book",
+                options: ["Signed Copy", "Gift Bundle"],
+                description: "Shams Ullah's inspiring Urdu book on resilience, small daily steps, and conquering mental barriers—drawn from real survival lessons in the mountains."
+            },
+            {
+                id: 105,
+                title: "-25°C Barefoot Snow Endurance Challenge",
+                category: "Expeditions & Vlogs",
+                price: 0,
+                altitude: 4200,
+                badge: "-25°C CHALLENGE",
+                location: "Himalayan Snowfield",
+                spec: "Mental Resilience Reel (@shamsontop)",
+                theme: "barefoot",
+                options: ["Reel Log", "Training Guide"],
+                description: "Pushing human willpower in sub-zero snow conditions—proving that a trained mind commands the body even in extreme freezing temperatures."
+            },
+            {
+                id: 106,
+                title: "\"Home to Mountain\" Heavyweight Hoodie",
+                category: "Outdoor Gear & Merch",
+                price: 4200,
+                altitude: 3200,
+                badge: "NEW DROP",
+                location: "Quetta / Islamabad",
+                spec: "420 GSM Brushed Cotton Fleece",
+                theme: "hoodie",
+                options: ["S", "M", "L", "XL"],
+                description: "Charcoal black heavyweight pullover hoodie featuring sky-blue and cream 'HOME TO MOUNTAIN • ISHAMSOFFICIAL' typography for everyday adventure wear."
+            },
+            {
+                id: 107,
+                title: "Classic Black & White Tipped Expedition Polo",
+                category: "Outdoor Gear & Merch",
+                price: 2650,
+                altitude: 2800,
+                badge: "TRAIL ESSENTIAL",
+                location: "Islamabad Studio",
+                spec: "Breathable Piqué Cotton Weave",
+                theme: "jacket",
+                options: ["S", "M", "L", "XL"],
+                description: "Inspired by Shams Ullah's signature trail polo—lightweight, moisture-wicking black piqué cotton with crisp white collar and cuff tipping."
+            },
+            {
+                id: 108,
+                title: "SYP Margalla Trail 5 Eco-Cleanliness Drive",
+                category: "Expeditions & Vlogs",
+                price: 0,
+                altitude: 1600,
+                badge: "ECO LEADERSHIP",
+                location: "Margalla Hills, Islamabad",
+                spec: "Youth Volunteer Initiative",
+                theme: "trail",
+                options: ["Volunteer Slot", "Impact Report"],
+                description: "Community conservation expedition led by Shams Ullah at Trail 5 Islamabad to preserve mountain biodiversity and promote clean hiking culture."
+            }
+        ];
+
+        // =====================================================================
+        // 3. STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
+        // =====================================================================
+        const STORAGE_KEY = 'ishamsofficial_listings_v1';
+        let listings = [];
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let sortMode = 'featured';
+        let selectedOptionMap = {}; // { itemId: 'M' }
+        let bag = []; // Array of { id, title, price, option, qty, theme }
+
+        function loadListingsFromStorage() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        listings = parsed;
+                    } else {
+                        listings = [...DEFAULT_LISTINGS];
+                    }
+                } else {
+                    listings = [...DEFAULT_LISTINGS];
+                }
+            } catch (e) {
+                listings = [...DEFAULT_LISTINGS];
+            }
+
+            listings.forEach(item => {
+                selectedOptionMap[item.id] = item.options[0];
+            });
+        }
+
+        function saveListingsToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
+            } catch (e) {
+                // Storage quota fallback
+            }
+        }
+
+        function formatPKR(val) {
+            if (!val || Number(val) === 0) return 'Expedition Log';
+            return 'Rs. ' + Number(val).toLocaleString('en-PK');
+        }
+
+        // =====================================================================
+        // 4. RENDER LISTINGS CATALOG
+        // =====================================================================
+        function getFilteredListings() {
+            return listings
+                .filter(item => {
+                    if (activeCategory !== 'All' && item.category !== activeCategory) return false;
+                    if (searchQuery.trim() !== '') {
+                        const q = searchQuery.toLowerCase();
+                        const match =
+                            item.title.toLowerCase().includes(q) ||
+                            item.category.toLowerCase().includes(q) ||
+                            item.location.toLowerCase().includes(q) ||
+                            item.description.toLowerCase().includes(q);
+                        if (!match) return false;
+                    }
+                    return true;
+                })
+                .sort((a, b) => {
+                    if (sortMode === 'price-asc') return a.price - b.price;
+                    if (sortMode === 'price-desc') return b.price - a.price;
+                    if (sortMode === 'altitude-desc') return (b.altitude || 0) - (a.altitude || 0);
+                    return 0;
+                });
+        }
+
+        function renderListings() {
+            const grid = document.getElementById('listing-grid');
+            const empty = document.getElementById('empty-state');
+            const countEl = document.getElementById('listing-count');
+            const filtered = getFilteredListings();
+
+            countEl.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                empty.classList.remove('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            empty.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(item => {
+                const activeOpt = selectedOptionMap[item.id] || item.options[0];
+                const isMerch = item.price > 0;
+
+                return `
+                <article class="group bg-shams-surface border border-shams-border hover:border-shams-sky rounded-3xl overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300">
+                    <div>
+                        <!-- Custom SVG Visual Header -->
+                        <div class="relative aspect-[4/3] bg-shams-bg overflow-hidden border-b border-shams-border">
+                            <div class="w-full h-full group-hover:scale-105 transition-transform duration-500">
+                                ${getThemeSVG(item.theme)}
+                            </div>
+
+                            <!-- Top Badge -->
+                            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest shadow ${isMerch ? 'bg-shams-cream text-shams-bg' : 'bg-shams-red text-white'}">
+                                ${item.badge || item.category}
+                            </span>
+
+                            <!-- Quick View Button -->
+                            <button 
+                                onclick="openQuickView(${item.id})" 
+                                class="absolute bottom-3 left-3 right-3 py-2 bg-shams-bg/90 hover:bg-shams-sky text-white hover:text-shams-bg backdrop-blur-md border border-white/15 rounded-xl text-[11px] font-extrabold uppercase tracking-wider opacity-95 sm:opacity-0 sm:group-hover:opacity-100 transition-all flex items-center justify-center gap-1.5"
+                            >
+                                <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                <span>Quick View Details</span>
+                            </button>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-shams-sky">
+                                    <span>${item.category}</span>
+                                    <span>${item.altitude > 0 ? item.altitude.toLocaleString() + 'M' : item.location}</span>
+                                </div>
+                                <h3 onclick="openQuickView(${item.id})" class="font-condensed text-2xl font-bold uppercase text-white mt-1 leading-snug cursor-pointer hover:text-shams-cream transition line-clamp-1" title="${item.title}">
+                                    ${item.title}
+                                </h3>
+                            </div>
+
+                            <!-- Price / Log Label -->
+                            <div class="flex items-center justify-between">
+                                <span class="text-base font-extrabold ${isMerch ? 'text-shams-cream' : 'text-shams-sky'}">
+                                    ${formatPKR(item.price)}
+                                </span>
+                                <span class="text-[11px] text-shams-muted">${item.location}</span>
+                            </div>
+
+                            <!-- Option / Size Selector Pills -->
+                            <div>
+                                <span class="block text-[10px] font-bold uppercase tracking-wider text-shams-muted mb-1.5">Select Option:</span>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${item.options.map(opt => `
+                                        <button 
+                                            type="button" 
+                                            onclick="selectItemOption(${item.id}, '${opt}')" 
+                                            class="px-2.5 py-1 rounded-lg text-[11px] font-bold border transition ${activeOpt === opt
+                                                ? 'bg-shams-sky text-shams-bg border-shams-sky'
+                                                : 'bg-shams-bg text-white border-shams-border hover:border-shams-cream'}"
+                                        >
+                                            ${opt}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Action Buttons -->
+                    <div class="px-5 pb-5 pt-1 flex items-center gap-2">
+                        <button 
+                            onclick="addToBag(${item.id})" 
+                            class="flex-1 py-2.5 bg-shams-card hover:bg-shams-cream text-white hover:text-shams-bg border border-shams-border hover:border-shams-cream text-xs font-extrabold uppercase tracking-wider rounded-xl transition flex items-center justify-center gap-1.5"
+                        >
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                            <span>${isMerch ? 'Add to Bag' : 'Save to Wishlist'}</span>
+                        </button>
+                        <button 
+                            onclick="inquireSingleWhatsApp(${item.id})" 
+                            title="Inquire via WhatsApp"
+                            class="p-2.5 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 rounded-xl transition"
+                        >
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        // =====================================================================
+        // 5. FILTERING, SEARCH & SORTING
+        // =====================================================================
+        function selectItemOption(itemId, opt) {
+            selectedOptionMap[itemId] = opt;
+            renderListings();
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = btn.dataset.cat === cat
+                    ? "tab-btn px-4 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-shams-cream text-shams-bg transition whitespace-nowrap"
+                    : "tab-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-shams-surface text-white border border-shams-border hover:border-shams-sky transition whitespace-nowrap";
+            });
+            renderListings();
+        }
+
+        function handleSearch(val) {
+            searchQuery = val;
+            document.getElementById('search-desktop').value = val;
+            document.getElementById('search-mobile').value = val;
+            renderListings();
+        }
+
+        function handleSort(val) {
+            sortMode = val;
+            renderListings();
+        }
+
+        function resetCatalogFilters() {
+            activeCategory = 'All';
+            searchQuery = '';
+            sortMode = 'featured';
+            document.getElementById('search-desktop').value = '';
+            document.getElementById('search-mobile').value = '';
+            document.getElementById('sort-select').value = 'featured';
+            setCategory('All');
+        }
+
+        // =====================================================================
+        // 6. QUICK VIEW MODAL
+        // =====================================================================
+        function openQuickView(itemId) {
+            const item = listings.find(i => i.id === itemId);
+            if (!item) return;
+
+            document.getElementById('qv-art-container').innerHTML = getThemeSVG(item.theme);
+            document.getElementById('qv-category').textContent = item.category;
+            document.getElementById('qv-title').textContent = item.title;
+            document.getElementById('qv-price').textContent = formatPKR(item.price);
+            document.getElementById('qv-altitude-pill').textContent = item.altitude > 0 ? `${item.altitude.toLocaleString()}m Elevation` : item.badge;
+            document.getElementById('qv-desc').textContent = item.description;
+            document.getElementById('qv-spec').textContent = item.spec;
+            document.getElementById('qv-location').textContent = item.location;
+
+            renderQVOptions(item);
+
+            document.getElementById('qv-add-btn').onclick = () => {
+                addToBag(item.id);
+                closeQuickView();
+            };
+            document.getElementById('qv-wa-btn').onclick = () => {
+                inquireSingleWhatsApp(item.id);
+            };
+
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function renderQVOptions(item) {
+            const activeOpt = selectedOptionMap[item.id] || item.options[0];
+            document.getElementById('qv-options').innerHTML = item.options.map(opt => `
+                <button 
+                    type="button" 
+                    onclick="selectQVOption(${item.id}, '${opt}')"
+                    class="px-3.5 py-2 rounded-xl text-xs font-bold border transition ${activeOpt === opt
+                        ? 'bg-shams-sky text-shams-bg border-shams-sky'
+                        : 'bg-shams-bg text-white border-shams-border hover:border-shams-cream'}"
+                >
+                    ${opt}
+                </button>
+            `).join('');
+        }
+
+        function selectQVOption(itemId, opt) {
+            selectedOptionMap[itemId] = opt;
+            const item = listings.find(i => i.id === itemId);
+            if (item) renderQVOptions(item);
+            renderListings();
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // =====================================================================
+        // 7. "+ ADD LISTING" CREATOR MODAL (SAVED TO LOCALSTORAGE)
+        // =====================================================================
+        function openAddListingModal() {
+            const modal = document.getElementById('add-listing-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeAddListingModal() {
+            const modal = document.getElementById('add-listing-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleAddListing(event) {
+            event.preventDefault();
+            const title = document.getElementById('new-title').value.trim();
+            const category = document.getElementById('new-category').value;
+            const price = parseInt(document.getElementById('new-price').value, 10) || 0;
+            const location = document.getElementById('new-location').value.trim() || 'Pakistan';
+            const theme = document.getElementById('new-theme').value;
+            const description = document.getElementById('new-desc').value.trim();
+
+            const checked = document.querySelectorAll('#new-options-group input[type="checkbox"]:checked');
+            const options = checked.length > 0 ? Array.from(checked).map(c => c.value) : ['Standard'];
+
+            const newEntry = {
+                id: Date.now(),
+                title,
+                category,
+                price,
+                altitude: 0,
+                badge: price > 0 ? 'NEW LISTING' : 'NEW EXPEDITION',
+                location,
+                spec: 'Official @ishamsofficial Release',
+                theme,
+                options,
+                description
+            };
+
+            listings.unshift(newEntry);
+            selectedOptionMap[newEntry.id] = options[0];
+            saveListingsToStorage();
+
+            document.getElementById('add-listing-form').reset();
+            closeAddListingModal();
+            resetCatalogFilters();
+            document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+            showToast(`"${title}" published to ISHAMSOFFICIAL!`);
+        }
+
+        // =====================================================================
+        // 8. BAG / WISHLIST DRAWER & WHATSAPP ORDERING (0314-6007878)
+        // =====================================================================
+        function toggleBagDrawer(open) {
+            const drawer = document.getElementById('bag-drawer');
+            const backdrop = document.getElementById('bag-backdrop');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                backdrop.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function addToBag(itemId) {
+            const item = listings.find(i => i.id === itemId);
+            if (!item) return;
+
+            const chosenOpt = selectedOptionMap[itemId] || item.options[0];
+            const existing = bag.findIndex(b => b.id === itemId && b.option === chosenOpt);
+
+            if (existing > -1) {
+                bag[existing].qty += 1;
+            } else {
+                bag.push({
+                    id: item.id,
+                    title: item.title,
+                    price: item.price,
+                    option: chosenOpt,
+                    qty: 1,
+                    theme: item.theme
+                });
+            }
+
+            updateBagUI();
+            showToast(`Added "${item.title}" (${chosenOpt}) to bag`);
+        }
+
+        function quickOrderItem(itemId) {
+            addToBag(itemId);
+            toggleBagDrawer(true);
+        }
+
+        function updateBagQty(index, delta) {
+            if (!bag[index]) return;
+            bag[index].qty += delta;
+            if (bag[index].qty <= 0) bag.splice(index, 1);
+            updateBagUI();
+        }
+
+        function removeBagItem(index) {
+            bag.splice(index, 1);
+            updateBagUI();
+        }
+
+        function updateBagUI() {
+            const badge = document.getElementById('bag-badge');
+            const listEl = document.getElementById('bag-items-list');
+            const emptyEl = document.getElementById('bag-empty');
+            const formEl = document.getElementById('bag-checkout-form');
+            const footerEl = document.getElementById('bag-footer');
+
+            const count = bag.reduce((sum, i) => sum + i.qty, 0);
+            badge.textContent = count;
+
+            if (bag.length === 0) {
+                listEl.innerHTML = '';
+                emptyEl.classList.remove('hidden');
+                formEl.classList.add('hidden');
+                footerEl.classList.add('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            emptyEl.classList.add('hidden');
+            formEl.classList.remove('hidden');
+            footerEl.classList.remove('hidden');
+
+            listEl.innerHTML = bag.map((item, idx) => `
+                <div class="flex gap-3 bg-shams-bg p-3 rounded-2xl border border-shams-border">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden border border-shams-border shrink-0">
+                        ${getThemeSVG(item.theme)}
+                    </div>
+                    <div class="flex-1 min-w-0 flex flex-col justify-between">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <h5 class="text-xs font-bold text-white leading-tight line-clamp-1">${item.title}</h5>
+                                <span class="inline-block mt-1 px-2 py-0.5 bg-shams-surface border border-shams-border rounded text-[10px] font-bold text-shams-sky">
+                                    ${item.option}
+                                </span>
+                            </div>
+                            <button onclick="removeBagItem(${idx})" class="text-shams-muted hover:text-shams-red p-1">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs font-extrabold text-shams-cream">
+                                ${item.price > 0 ? formatPKR(item.price * item.qty) : 'Expedition Inquiry'}
+                            </span>
+                            <div class="flex items-center bg-shams-surface border border-shams-border rounded-lg overflow-hidden">
+                                <button onclick="updateBagQty(${idx}, -1)" class="px-2 py-0.5 text-xs font-bold hover:bg-shams-card">&minus;</button>
+                                <span class="px-2 py-0.5 text-xs font-bold">${item.qty}</span>
+                                <button onclick="updateBagQty(${idx}, 1)" class="px-2 py-0.5 text-xs font-bold hover:bg-shams-card">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = bag.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const shipping = subtotal === 0 || subtotal >= 5000 ? 0 : 250;
+            const total = subtotal + shipping;
+
+            document.getElementById('bag-subtotal').textContent = formatPKR(subtotal);
+            document.getElementById('bag-shipping').textContent = shipping === 0 ? 'FREE' : formatPKR(shipping);
+            document.getElementById('bag-total').textContent = subtotal === 0 ? 'Inquiry Only' : formatPKR(total);
+
+            lucide.createIcons();
+        }
+
+        function inquireSingleWhatsApp(itemId) {
+            const item = listings.find(i => i.id === itemId);
+            if (!item) return;
+            const opt = selectedOptionMap[itemId] || item.options[0];
+            const msg = `Assalam-o-Alaikum Shams Ullah (@ishamsofficial)!\nI am interested in:\n*${item.title}*\nOption: ${opt}\nPrice: ${formatPKR(item.price)}`;
+            window.open(`https://wa.me/923146007878?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function sendBagToWhatsApp() {
+            const name = document.getElementById('cust-name').value.trim() || 'Valued Supporter';
+            const phone = document.getElementById('cust-phone').value.trim() || 'Not provided';
+            const city = document.getElementById('cust-city').value.trim() || 'Not provided';
+            const address = document.getElementById('cust-address').value.trim() || 'Not provided';
+
+            const subtotal = bag.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const shipping = subtotal === 0 || subtotal >= 5000 ? 0 : 250;
+            const total = subtotal + shipping;
+
+            let msg = `*ISHAMSOFFICIAL ORDER / INQUIRY*\n--------------------------------\n`;
+            bag.forEach((item, idx) => {
+                msg += `${idx + 1}. *${item.title}* (${item.option}) x${item.qty} - ${item.price > 0 ? formatPKR(item.price * item.qty) : 'Inquiry'}\n`;
+            });
+            msg += `--------------------------------\n`;
+            if (subtotal > 0) {
+                msg += `Delivery: ${shipping === 0 ? 'FREE' : formatPKR(shipping)}\n*Total: ${formatPKR(total)}*\n\n`;
+            }
+            msg += `*Customer Details:*\nName: ${name}\nPhone: ${phone}\nCity: ${city}\nAddress: ${address}`;
+
+            window.open(`https://wa.me/923146007878?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function confirmCODCheckout() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const city = document.getElementById('cust-city').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone || !city || !address) {
+                showToast('Please enter Name, Phone, City, and Address first.', 'error');
+                return;
+            }
+
+            const ref = 'SHM-' + Math.floor(100000 + Math.random() * 900000);
+            bag = [];
+            updateBagUI();
+            toggleBagDrawer(false);
+            showToast(`Order #${ref} confirmed for ${name}!`);
+        }
+
+        // =====================================================================
+        // 9. DIRECT CONTACT FORM, MOBILE MENU & TOAST SYSTEM
+        // =====================================================================
+        function submitDirectContact(event) {
+            event.preventDefault();
+            const name = document.getElementById('direct-name').value.trim();
+            const subject = document.getElementById('direct-subject').value;
+            const message = document.getElementById('direct-msg').value.trim();
+
+            const text = `*ISHAMSOFFICIAL DIRECT MESSAGE*\nName: ${name}\nTopic: ${subject}\nMessage: ${message}`;
+            window.open(`https://wa.me/923146007878?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+            showToast('Opening WhatsApp to message Shams Ullah...');
+        }
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `${type === 'error' ? 'bg-shams-red' : 'bg-shams-surface border border-shams-sky'} text-white px-4 py-3 rounded-2xl shadow-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 pointer-events-auto transition-all duration-300`;
+            toast.innerHTML = `<i data-lucide="${type === 'error' ? 'alert-circle' : 'check-circle'}" class="w-4 h-4 ${type === 'error' ? 'text-white' : 'text-shams-sky'} shrink-0"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3400);
+        }
+
+        // Bootstrap App
+        window.addEventListener('DOMContentLoaded', () => {
+            loadListingsFromStorage();
+            renderListings();
+            updateBagUI();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
